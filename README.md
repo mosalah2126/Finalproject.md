@@ -17,18 +17,21 @@ Understanding these sentiments is crucial as it shapes our approach to future pa
 
 ## Methodology: Data Collection and Analysis
 This research will employ the APIs of YouTube, capitalizing on the platform's unique advantages for data collection. The primary focus will be on user comments from YouTube videos concerning Covid-19 from December 2020. This period provides a comprehensive snapshot of public sentiment during the spike of the delta variant.To supplement the sentiment analysis and gain deeper insights I will also utilize word cloud visualization to analyze the most frequent words, enabling me to identify dominant themes and sentiments that resonate in the public discourse.
-### Rationale for Selecting YouTube as the Data Source
+### Section A: Rationale for Selecting YouTube as the Data Source
 
 1. **Broad User Interaction**: YouTube's substantial and diverse user base is ideal for assessing public sentiment. Users from a wide range of demographics engage with the platform's content, offering a panorama of perspectives that are representative of numerous cultural, social, and political backgrounds.
 
 2. **Topic-Centric Commentary**: YouTube comments are often directly connected to the content of the videos, yielding targeted and pertinent textual data for analysis. This direct relationship is particularly advantageous for sentiment analysis when examining responses to the COVID-19 vaccine and related policies.
 
 3. **Accessibility of Data**: The YouTube Data API enhances the systematic collection of comment data, enabling researchers to efficiently compile extensive datasets necessary for a solid analysis of public sentiment. This accessibility is a vital component in gathering the volume of data required for a substantial sentiment analysis.
-### Data Preprocessing Steps for Sentiment Analysis
+
+### Section B: Data Preprocessing Steps for Sentiment Analysis
 1. **Exclusion of Long Comments**: In sentiment analysis, brevity is often associated with the clarity of sentiment. Therefore, comments exceeding 100 words have been filtered out, as the analysis aims to focus on concise and more pointed feedback, which can be assessed more reliably. For both YouTube videos, there were long comments unrelated to the video content. For instance, in the UAE video, there were instances of Quranic verses, song lyrics, or lengthy anecdotes about life. Similarly, in the U.S. video, comments ranged from mentions of animals to unrelated song lyrics. A thorough review of the comments on both videos revealed that more than 95% of the comments over 100 words did not pertain to the video content, leading to the decision to exclude them from the research entirely.
 2. **Link Removal**: To ensure the integrity of the dataset, comments containing links have been excluded. This precaution ensures that the sentiments analyzed are purely reflective of the comment content and not influenced by any external content that the commenters may link to. Many links led to advertisements or solicitations for payments, while others were links to additional YouTube videos, which could potentially distract from the sentiment analysis.
 3. **Specific Word Removal**: During preprocessing, common stopwords such as "and", "it", and "the" have been removed. These words typically do not convey sentiment and can skew the analysis if not addressed. Eliminating these allows the algorithm to concentrate on terms that are more indicative of sentiment.
 
-Initially, the plan included the removal of emojis; however, upon further consideration, emojis are recognized as expressive tools that can significantly contribute to understanding sentiment. Therefore, they will be retained to differentiate between positive and negative emotions effectively. Stop-words, which typically do not carry meaningful sentiment, will still be removed to sharpen the focus of the dataset.
-After the data is cleansed, I will proceed to the sentiment assessment phase. Instead of term frequency, this study will utilize a word cloud generated through Python to visualize the most prominent words within the comments. This visual representation will not only illustrate the frequency of specific words but also highlight the dominant themes and sentiments expressed by users concerning the COVID-19 vaccine. The word cloud, with its emphasis on the most recurrent words, will shed light on the intensity and nature of public opinion.
+Initially, the plan included the removal of emojis; however, upon further consideration, emojis are recognized as expressive tools that can significantly contribute to understanding sentiment. 
+
+### Section C: Sentiment Analysis Code
+
 
