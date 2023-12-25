@@ -1,5 +1,6 @@
-<img width="817" alt="image" src="https://github.com/mosalah2126/Finalproject.md/assets/144922510/79132539-3685-47fc-8762-aa4411dcbb39"># Finalproject.md
 ## Covid-19 Sentiment Analysis Project 
+
+
 ## Introduction
 COVID-19 had a severe impact, affecting public health, policy responses, and the global economy. Yet public sentiment towards COVID-19 and its vaccine varies strongly between countries. Understanding the public sentiment towards the COVID-19 vaccines is crucial for policymakers because it can inform outreach methods and strategies that need to be used to counter vaccine hesitancy, misinformation, and public concerns. The COVID-19 pandemic has brought significant attention to vaccine distribution and acceptance, making it crucial to examine how different regions perceive and react to vaccination efforts. Gaining insight into how people feel about the vaccine can shape our approach to future pandemics, helping to mitigate critics' voices and economic losses by ensuring that policies and communications are better aligned with public sentiment. This can lead to better policy implementation and greater public compliance, safeguarding public health and economic stability.
 
@@ -32,6 +33,182 @@ This research will employ the APIs of YouTube, capitalizing on the platform's un
 
 Initially, the plan included the removal of emojis; however, upon further consideration, emojis are recognized as expressive tools that can significantly contribute to understanding sentiment. 
 
-### Section C: Sentiment Analysis Code
+### Section C: Sentiment Analysis Code and Explanation
+
+
+`````
+import nltk
+nltk.download('vader_lexicon')
+import os
+import re
+import googleapiclient.discovery
+from nltk.sentiment import SentimentIntensityAnalyzer
+API_KEY = 'AIzaSyAhLQnohaqHgLHxG2yfyIDxoCkGnroNtb4'
+def extract_comment_threads(video_id, max_results=1000):
+    """
+    Extract comment threads from a YouTube video using the YouTube Data API.
+
+    :param video_id: The ID of the YouTube video.
+    :param max_results: The maximum number of comments to retrieve (default is 1000).
+    :return: A list of comment threads.
+    """
+    youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=API_KEY)
+    comments = []
+    nextPageToken = None
+    sia = SentimentIntensityAnalyzer()
+    total_score = 0
+    positive_count, negative_count, neutral_count = 0, 0, 0
+
+    while len(comments) < max_results:
+        response = youtube.commentThreads().list(
+            part='snippet',
+            videoId=video_id,
+            maxResults=100,
+            textFormat='plainText',
+            pageToken=nextPageToken
+        ).execute()
+
+        for item in response['items']:
+            comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
+            if len(comment.split()) <= 100 and not re.search(r'(youtu\.be/|youtube\.com/watch\?v=)', comment):
+                filtered_comment = re.sub(r'\b(and|it|the)\b', '', comment, flags=re.IGNORECASE)
+                sentiment_score = sia.polarity_scores(filtered_comment)['compound']
+                total_score += sentiment_score
+
+
+                if sentiment_score > 0:
+                    positive_count += 1
+                elif sentiment_score < 0:
+                    negative_count += 1
+                else:
+                    neutral_count += 1
+
+                comments.append((filtered_comment, sentiment_score))
+
+            if len(comments) >= max_results:
+                break
+
+        if 'nextPageToken' in response:
+            nextPageToken = response['nextPageToken']
+        else:
+            break
+
+    return comments, total_score, positive_count, negative_count, neutral_count
+
+  if __name__ == "__main__":
+    video_id = 'cQPoa9cFUyc'
+    max_results = 1000
+
+    comments, total_score, positive_count, negative_count, neutral_count = extract_comment_threads(video_id, max_results)
+
+    print(f"Total Sentiment Score: {total_score}")
+    print(f"Positive Comments: {positive_count}")
+    print(f"Negative Comments: {negative_count}")
+    print(f"Neutral Comments: {neutral_count}")
+
+    for idx, (comment, score) in enumerate(comments, start=1):
+        sentiment = 'Positive' if score > 0 else 'Negative' if score < 0 else 'Neutral'
+        print(f"{idx}. {comment} - Sentiment: {sentiment} (Score: {score})") 
+`````
+
+Here is an explanation of the code: 
+1. **Script Setup and Imports**: The sentiment analysis project was underpinned by a Python script accurately designed to interact with the YouTube Data API and perform  text analysis using the Natural Language Toolkit (NLTK). The script imports essential libraries: os and re for operating system interactions and regular expression operations, googleapiclient.discovery for accessing YouTube's API, and nltk.sentiment for sentiment analysis functionalities.
+
+2. **API Initialization and Data Retrieval**: The script initiates by setting up the YouTube Data API, using the googleapiclient.discovery.build method to create a youtube service object. This object facilitates communication with YouTube's servers. The API key is hard-coded into the script. The extract_comment_threads function plays a pivotal role, taking a video_id and an optional max_results parameter (defaulting to 1000) to define the scope of data retrieval. Within this function, a while loop iterates through the pages of comments. Each page fetches up to 100 comments, controlled by the maxResults parameter in the youtube.commentThreads().list() method, until the desired number of comments is reached or no more pages are available (indicated by the absence of a nextPageToken).
+
+3. **Comment Filtering and Processing**: As the script iterates through the comments, it applies several filters:
+
+   #### Length Check: 
+   It uses Python's string split() method to ensure each comment's word count does not exceed 100, filtering out    lengthy and potentially off-topic responses.
+   #### Link Detection:
+   Regular expressions (re.search()) identify comments containing YouTube links, which are then excluded to maintain    focus on the primary content.
+   #### Stop Word Removal:
+   (re.sub()) removes specified stopwords ("and", "it", "the") from the comments.
+
+4. **Sentiment Analysis**: In my sentiment analysis, after filtering out the content from the comments, I leveraged NLTK's SentimentIntensityAnalyzer to dive into the emotional depth of each response. My primary focus was on the compound score—it's like the heartbeat of the comment, summing up its sentiment atmosphere. I added up these scores to get a total sentiment score and kept a tally of the positive, negative, and neutral counts. Once I wrapped up the analysis, my script  packaged each comment with its sentiment score, giving me a full picture of the sentiment mood. Moreover, I dialed in the video ID and orchestrated the extract_comment_threads function to unveil the total sentiment score and the breakdown of reactions. This offered a clear overview of the public sentiment, as if I was listening to the audience be positive or negative to the video content.
+
+### Section D: Word Cloud Code and Explanation
+
+`````
+!pip install wordcloud
+import os
+import re
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+import googleapiclient.discovery
+import nltk
+from nltk.sentiment import SentimentIntensityAnalyzer
+
+nltk.download('vader_lexicon')
+
+API_KEY = 'AIzaSyAhLQnohaqHgLHxG2yfyIDxoCkGnroNtb4'  
+
+
+def extract_comment_threads(oGNHCpmKlVw, max_results=1000):
+    """
+    Extract comment threads from a YouTube video using the YouTube Data API.
+
+    :param video_id: The ID of the YouTube video.
+    :param max_results: The maximum number of comments to retrieve (default is 1000).
+    :return: A list of comment threads.
+    """
+    youtube = googleapiclient.discovery.build('youtube', 'v3', developerKey=API_KEY)
+    comments = []
+    nextPageToken = None
+
+   
+    sia = SentimentIntensityAnalyzer()
+
+    while len(comments) < max_results:
+        response = youtube.commentThreads().list(
+            part='snippet',
+            videoId=video_id,
+            maxResults=100,
+            textFormat='plainText',
+            pageToken=nextPageToken
+        ).execute()
+
+        for item in response['items']:
+            comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
+            
+            if len(comment.split()) <= 100 and not re.search(r'(youtu\.be/|youtube\.com/watch\?v=)', comment):
+                filtered_comment = re.sub(r'\b(and|it|the)\b', '', comment, flags=re.IGNORECASE)
+                
+                comments.append(filtered_comment)
+
+            if len(comments) >= max_results:
+                break
+
+        if 'nextPageToken' in response:
+            nextPageToken = response['nextPageToken']
+        else:
+            break
+
+    return comments
+
+if __name__ == "__main__":
+    video_id = 'oGNHCpmKlVw'  
+    max_results = 1000  
+
+    comments = extract_comment_threads(video_id, max_results)
+
+    all_comments = ' '.join(comments)
+
+    wordcloud = WordCloud(width = 800, height = 400, background_color='white').generate(all_comments)
+
+    plt.figure(figsize=(15,7.5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    plt.show()
+`````
+
+Here is an explanation of the code:
+1. **Setting Up for Visualization**: In this part of the script, I start by importing the necessary libraries. I use os for operating system interactions, re for regular expression operations, matplotlib.pyplot for creating visual plots, googleapiclient.discovery for accessing YouTube's API, and nltk for natural language processing. This setup is crucial as it prepares my script for both visual representation through a word cloud and in-depth sentiment analysis using NLTK's VADER. 
+2. **YouTube API and Comment Extraction with Sentiment Metrics**: Similar to the previous script, the YouTube Data API is set up with an API key, allowing the script to fetch comments from a specified YouTube video. NLTK is also used.
+3. **Word Cloud Generation from Filtered Comments**: After processing the comments and analyzing their sentiments, the script concatenates them into a single string. The WordCloud class then takes this string and generates the data. 
+4. **Visualization**: Using matplotlib, the script creates a plot to display the word cloud. This visualization is not just a collection of words but a reflection of the sentiments offering the prevailing words in the comments. 
+
+
+## Methodology: Data Collection and Analysis
 
 
