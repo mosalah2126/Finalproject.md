@@ -2,34 +2,35 @@
 
 
 ## Introduction
-COVID-19 had a severe impact, affecting public health, policy responses, and the global economy. Yet public sentiment towards COVID-19 and its vaccine varies strongly between countries. Understanding the public sentiment towards the COVID-19 vaccines is crucial for policymakers because it can inform outreach methods and strategies that need to be used to counter vaccine hesitancy, misinformation, and public concerns. The COVID-19 pandemic has brought significant attention to vaccine distribution and acceptance, making it crucial to examine how different regions perceive and react to vaccination efforts. Gaining insight into how people feel about the vaccine can shape our approach to future pandemics, helping to mitigate critics' voices and economic losses by ensuring that policies and communications are better aligned with public sentiment. This can lead to better policy implementation and greater public compliance, safeguarding public health and economic stability.
+COVID-19 impacted public health, policy responses, and the economy. Public sentiment towards COVID-19 vaccine varies between countries, influencing policymakers' strategies to counter vaccine hesitancy. Understanding these sentiments is crucial in shaping approaches to future pandemics, aligning policies with public sentiment for better implementation.
 
-Research Question: How does public sentiment regarding COVID-19 vaccines differ between the United Arab Emirates and the United States during the delta variant surge in 2021? The hypothesis for this research question is that public sentiment towards COVID-19 vaccines in the United Arab Emirates will be more positive than in the United States, where a greater degree of skepticism is expected. The reason is it’s a tale of two different societies; each country has different societal norms and regimes in place. The United States is known for its diverse demographics, which creates a unique context to analyze sentiments as there are many different cultural backgrounds, political affiliations, and regional differences that can influence public sentiment. On the other hand, the United Arab Emirates represents a different regime type and different societal norms than the United States. Whether you’re an expatriate or not in the United Arab Emirates, when you see that most of the locals are trusting of the government and is getting the vaccine, it will somehow influence your decision. Whereas in the United States, it’s the opposite effect; because you have a large portion of Americans questioning the vaccine, as an expatriate in the United States, many begin to question it too, and we will see how that evolves into the public sentiment in the two YouTube videos that are analyzed. The first video analyzed involves Dr. Anthony Fauci, who was the former chief medical advisor to the president of the United States, taking the Covid-19 Vaccine. The second video analyzed is a video of the United Arab Emirates approving the Sinopharm vaccine, and the video is encouraging citizens and residents to get vaccinated.
+Research Question: How does public sentiment regarding COVID-19 vaccines differ between the United Arab Emirates and the United States during the delta variant surge in 2021? This study hypothesizes more positive sentiments in the UAE compared to skepticism in the U.S. This divergence is attributed to differing societal norms and regimes. The U.S.'s diverse demographics create a unique context, influencing public sentiment across cultural and political lines. In contrast, the UAE, with its different regime type and norms, shows a higher trust in government-led vaccination efforts. This study analyzes public sentiment through YouTube videos: one featuring Dr. Fauci receiving the vaccine, and another endorsing the Sinopharm vaccine in the UAE. The analysis focuses on how societal differences between these nations and public policy on Covid-19 shape public perceptions and responses to the COVID-19 vaccine.
 
-## Comparative Policy Analysis: UAE and USA
-The United Arab Emirates initially adopted a different approach in early 2020; they implemented a full-blown lockdown. But by mid-2020, they relaxed their lockdown rules and opened up their country to tourists. Tourists from all over the world started coming to live in Dubai as a permanent hub until their countries relaxed their laws. Once the vaccines were approved, the UAE encouraged their population to get vaccinated and required it for entry into the country for tourists. Residents and citizens with the vaccine could avoid quarantine, and those vaccinated who were in contact with a positive case no longer needed to quarantine. Immediately, there was a spike in the number of people taking the vaccine. According to Our World in Data vaccination rates in the UAE exceeded 100% of the population due to the vaccination of non-residents. Meanwhile, in the United States, many people were required to take the vaccine to work. Some states even mandated it for entry into restaurants, and the lockdown was more intense. It became more of a requirement than an option, whereas in the UAE, it was perceived as an option. I believe this difference will play a huge role in skepticism and misinformation, and I expect this to be proven in the sentiment analysis conducted in this project.
+According to Our World in Data vaccination rates in the UAE exceeded 100% of the population due to the vaccination of non-residents. In the United States 70% are considered fully vaccinated. However, many people in the U.S. were required to take the vaccine to work. Some states mandated it for entry into restaurants, it became more of a requirement than an option, whereas in the UAE, it was viewed as an option. This difference will play a role in skepticism and misinformation, and I expect this to be proven in the sentiment analysis conducted in this project. Understanding these sentiments is crucial for the approach of future pandemics. An important question is: did lockdowns and the requirement of COVID passes for entry into restaurants and businesses deter people from vaccination?
+
+**Exhibit A: U.S. V.S. U.A.E Vaccination Rates**
+
 
 
 <img width="468" alt="image" src="https://github.com/mosalah2126/Finalproject.md/assets/144922510/a8962fe6-551b-44b3-8179-0f39290a1c03">
 
 
 
-Understanding these sentiments is crucial as it shapes our approach to future pandemics. Questions arise: Will intense lockdowns and the requirement of COVID passes for entry into restaurants and businesses deter people from vaccination? Does mandating vaccines in workplaces lead to misinformation and increased skepticism? Alternatively, could a strategy involving relaxed rules without full-blown lockdowns encourage vaccination? The contrasting methods employed by these two countries make this sentiment analysis vital. It enables us to discern, from the tone of the comments, which country garnered more support than the other.
+## Methodology: Data Collection and Code Analysis
+This research will employ the APIs of YouTube, capitalizing on the platform's advantages for data collection. The primary focus will be on user comments from YouTube videos concerning Covid-19 from December 2020. This period provides a comprehensive snapshot of public sentiment during the spike of the delta variant. To supplement the sentiment analysis and gain deeper insights I will also utilize word cloud visualization to analyze the most frequent words, enabling me to identify dominant themes and sentiments that resonate in the public discourse.
 
-## Methodology: Data Collection and Analysis
-This research will employ the APIs of YouTube, capitalizing on the platform's unique advantages for data collection. The primary focus will be on user comments from YouTube videos concerning Covid-19 from December 2020. This period provides a comprehensive snapshot of public sentiment during the spike of the delta variant.To supplement the sentiment analysis and gain deeper insights I will also utilize word cloud visualization to analyze the most frequent words, enabling me to identify dominant themes and sentiments that resonate in the public discourse.
 ### Section A: Rationale for Selecting YouTube as the Data Source
 
-1. **Broad User Interaction**: YouTube's substantial and diverse user base is ideal for assessing public sentiment. Users from a wide range of demographics engage with the platform's content, offering a panorama of perspectives that are representative of numerous cultural, social, and political backgrounds.
+1. **Broad User Interaction**: YouTube's substantial and diverse user-base is ideal for assessing public sentiment. Users from a wide range of demographics engage with the platform's content, offering different perspectives that are representative of numerous cultural and social backgrounds.
 
-2. **Topic-Centric Commentary**: YouTube comments are often directly connected to the content of the videos, yielding targeted and pertinent textual data for analysis. This direct relationship is particularly advantageous for sentiment analysis when examining responses to the COVID-19 vaccine and related policies.
+2. **Topic-Centric Commentary**: YouTube comments are often directly connected to the content of the videos, yielding targeted and pertinent textual data for analysis unlike Reddit. This direct relationship is particularly advantageous for sentiment analysis when examining responses to the vaccine.
 
-3. **Accessibility of Data**: The YouTube Data API enhances the systematic collection of comment data, enabling researchers to efficiently compile extensive datasets necessary for a solid analysis of public sentiment. This accessibility is a vital component in gathering the volume of data required for a substantial sentiment analysis.
+3. **Accessibility of Data**: The YouTube Data API enhances the systematic collection of comment data, enabling researchers to efficiently compile extensive datasets necessary for a solid analysis of public sentiment.
 
 ### Section B: Data Preprocessing Steps for Sentiment Analysis
-1. **Exclusion of Long Comments**: In sentiment analysis, brevity is often associated with the clarity of sentiment. Therefore, comments exceeding 100 words have been filtered out, as the analysis aims to focus on concise and more pointed feedback, which can be assessed more reliably. For both YouTube videos, there were long comments unrelated to the video content. For instance, in the UAE video, there were instances of Quranic verses, song lyrics, or lengthy anecdotes about life. Similarly, in the U.S. video, comments ranged from mentions of animals to unrelated song lyrics. A thorough review of the comments on both videos revealed that more than 95% of the comments over 100 words did not pertain to the video content, leading to the decision to exclude them from the research entirely.
-2. **Link Removal**: To ensure the integrity of the dataset, comments containing links have been excluded. This precaution ensures that the sentiments analyzed are purely reflective of the comment content and not influenced by any external content that the commenters may link to. Many links led to advertisements or solicitations for payments, while others were links to additional YouTube videos, which could potentially distract from the sentiment analysis.
-3. **Specific Word Removal**: During preprocessing, common stopwords such as "and", "it", and "the" have been removed. These words typically do not convey sentiment and can skew the analysis if not addressed. Eliminating these allows the algorithm to concentrate on terms that are more indicative of sentiment.
+1. **Exclusion of Long Comments**: In sentiment analysis, brevity is often associated with the clarity of sentiment. Therefore, comments exceeding 100 words have been filtered out, as the analysis aims to focus on concise feedback. For both videos, there were long comments unrelated to the video content. For instance, in the UAE video, there were Quranic verses, song lyrics, or lengthy anecdotes about life. In the U.S. video, comments ranged from mentions of animals to unrelated song lyrics. A thorough review of the comments on both videos revealed that more than 95% of the comments over 100 words did not pertain to the video content, leading to the decision to exclude them from the research.
+2. **Link Removal**: To ensure the integrity of the dataset, comments containing links have been excluded. This precaution ensures that the sentiments analyzed are purely reflective of the comment content and not influenced by any external content. Many links led to advertisements or solicitations for payments, while others were links to additional YouTube videos.
+3. **Specific Word Removal**: During preprocessing, common stopwords such as "and", "it", and "the" have been removed. These words typically do not convey sentiment and can skew the analysis if not addressed. 
 
 Initially, the plan included the removal of emojis; however, upon further consideration, emojis are recognized as expressive tools that can significantly contribute to understanding sentiment. 
 
@@ -112,20 +113,20 @@ def extract_comment_threads(video_id, max_results=1000):
 `````
 
 Here is an explanation of the code: 
-1. **Script Setup and Imports**: The sentiment analysis project was underpinned by a Python script accurately designed to interact with the YouTube Data API and perform  text analysis using the Natural Language Toolkit (NLTK). The script imports essential libraries: os and re for operating system interactions and regular expression operations, googleapiclient.discovery for accessing YouTube's API, and nltk.sentiment for sentiment analysis functionalities.
+1. **Script Setup and Imports**: The sentiment analysis project was underpinned by a Python script accurately designed to interact with the YouTube Data API and perform text analysis using the Natural Language Toolkit (NLTK). The script imports essential libraries: os and re for operating system interactions and regular expression operations, googleapiclient.discovery for accessing YouTube's API, and nltk.sentiment for sentiment analysis functionalities.
 
 2. **API Initialization and Data Retrieval**: The script initiates by setting up the YouTube Data API, using the googleapiclient.discovery.build method to create a youtube service object. This object facilitates communication with YouTube's servers. The API key is hard-coded into the script. The extract_comment_threads function plays a pivotal role, taking a video_id and an optional max_results parameter (defaulting to 1000) to define the scope of data retrieval. Within this function, a while loop iterates through the pages of comments. Each page fetches up to 100 comments, controlled by the maxResults parameter in the youtube.commentThreads().list() method, until the desired number of comments is reached or no more pages are available (indicated by the absence of a nextPageToken).
 
 3. **Comment Filtering and Processing**: As the script iterates through the comments, it applies several filters:
 
    #### Length Check: 
-   It uses Python's string split() method to ensure each comment's word count does not exceed 100, filtering out    lengthy and potentially off-topic responses.
+   It uses Python's string split() method to ensure each comment's word count does not exceed 100, filtering out lengthy and potentially off-topic responses.
    #### Link Detection:
-   Regular expressions (re.search()) identify comments containing YouTube links, which are then excluded to maintain    focus on the primary content.
+   Regular expressions (re.search()) identify comments containing YouTube links, which are then excluded to maintain focus on the primary content.
    #### Stop Word Removal:
    (re.sub()) removes specified stopwords ("and", "it", "the") from the comments.
 
-4. **Sentiment Analysis**: In my sentiment analysis, after filtering out the content from the comments, I leveraged NLTK's SentimentIntensityAnalyzer to dive into the emotional depth of each response. My primary focus was on the compound score—it's like the heartbeat of the comment, summing up its sentiment atmosphere. I added up these scores to get a total sentiment score and kept a tally of the positive, negative, and neutral counts. Once I wrapped up the analysis, my script  packaged each comment with its sentiment score, giving me a full picture of the sentiment mood. Moreover, I dialed in the video ID and orchestrated the extract_comment_threads function to unveil the total sentiment score and the breakdown of reactions. This offered a clear overview of the public sentiment, as if I was listening to the audience be positive or negative to the video content.
+4. **Sentiment Analysis**: In my sentiment analysis, after filtering out the content from the comments, I leveraged NLTK's SentimentIntensityAnalyzer to dive into the emotional depth of each response. My primary focus was on the compound score; it's like the heartbeat of the comment, summing up its sentiment atmosphere. I added up these scores to get a total sentiment score and kept a tally of the positive, negative, and neutral counts. Once I wrapped up the analysis, my script  packaged each comment with its sentiment score, giving me a full picture of the sentiment mood. Moreover, I dialed in the video ID and orchestrated the extract_comment_threads function to unveil the total sentiment score and the breakdown of reactions. This offered a clear overview of the public sentiment, as if I was listening to the audience be positive or negative to the video content.
 
 ### Section D: Word Cloud Code and Explanation
 
@@ -209,6 +210,64 @@ Here is an explanation of the code:
 4. **Visualization**: Using matplotlib, the script creates a plot to display the word cloud. This visualization is not just a collection of words but a reflection of the sentiments offering the prevailing words in the comments. 
 
 
-## Methodology: Data Collection and Analysis
+## Results, Discussion & Conclusion
+
+The sentiment analysis conducted offers a comparative glimpse into the public sentiment regarding vaccines during a critical period of the pandemic. The UAE video depicted a general approval and trust in vaccination as evidenced by the positive total sentiment score of 14.4935. In contrast, the U.S. video featuring Dr. Fauci had a total sentiment score of -15.9412, reflecting negativity and skepticism towards the vaccine. Misclassifications was the biggest limitation in analyzing the U.S. video, where tools failed to accurately interpret sarcasm and nuanced language, leading to positive sentiments being incorrectly categorized as negative. The video's 133 comments initially perceived as positive were negative. An example of this can be seen in comments 119 and 128 in Exhibit B below. 
+
+**Exhibit B: Sentiment Analysis Scores on Comments**
+ 
+
+<img width="1195" alt="image" src="https://github.com/mosalah2126/Finalproject.md/assets/144922510/6b2e2b5b-2711-490e-a9a8-d91ad7d1cffc">
+
+
+
+
+
+
+In the UAE context, the sentiment was more straightforward. The video reveals a positive outlook towards the vaccine, with comments commending the actions of the UAE government, expressing trust in the vaccine. Out of 104 unfiltered comments, only 13 are negative, and notably, 10 of these do not criticize the vaccine directly. Instead, they discuss preferences for other vaccines. This distinction suggests that the sentiment analysis may not fully capture the underlying positive attitude towards vaccination in general. See Exhibit B below. 
+
+A key aspect of this research was the comparative study of sentiments between two diverse societies. The U.S. population appears more outspoken and negatively inclined, likely influenced by prior pandemic handling. In contrast, the UAE, with different societal norms and a distinct regime type, shows a more positive public opinion. This positivity may stem from the Emirati government's provision of free healthcare and education, which could be perceived as indicative of a government that cares well for its citizens. Consequently, this may lead to greater public trust and less negativity towards vaccination, a trend observable in the comments.
+
+From a public health policy perspective, sentiment analysis serves as a crucial tool for assessing public sentiment. Positive sentiments can signify policy alignment, while negative sentiments may indicate a lack of trust. This analysis is vital for policy leaders to evaluate their public health strategies. This could point to the possibility that the stringent measures undertaken by the U.S. led many to view the U.S. as untrustworthy, fostering skepticism about their decisions. Meanwhile, the UAE, which had a less stringent COVID policy and vaccine process, ended up having most of their population vaccinated. 
+
+The utilization of data visualization, particularly the creation of word clouds, further enhanced the understanding of the sentiment analysis results. Visuals provided a clear and concise way to compare sentiment scores, emphasizing the contrast between the largely positive sentiments surrounding the UAE video and the mixed sentiments in the U.S. video. In the Fauci video analysis, it's evident that the most common words are 'vaccine', 'Fauci', 'shot', and 'fake'. Terms like 'syringe' and 'saline' appear frequently and align with the overall sentiment analysis, indicating a predominance of negative comments. Other words such as 'water', 'vitamin', 'placebo', and 'fraud' also emerge in the word cloud. This sentiment reflects a hesitancy towards vaccination among this audience. The UAE video presents a different picture. Words like 'congratulation', 'vaccine', 'Sinopharm', and 'Alhamdulillah' (meaning 'thank God'), along with 'safe', 'accept', and 'love' dominate the word cloud. The word cloud reveals minimal skepticism and a generally positive sentiment, highlighting the differing attitudes towards government and vaccine trust in these two populations. See Exhibit C and D below.
+
+
+
+**Exhibit C: Word Cloud UAE** 
+
+
+
+![image](https://github.com/mosalah2126/Finalproject.md/assets/144922510/724908ee-6b7d-4af8-b6d6-80c9c5fe7dd3)
+
+
+
+
+
+**Exhibit D: Word Cloud U.S.** 
+
+
+
+
+![image](https://github.com/mosalah2126/Finalproject.md/assets/144922510/65d1c9e7-e1aa-4eb9-b922-efec7f7d1a4e)
+
+
+
+
+
+
+In conclusion, despite some errors in classifying negative and neutral comments, the overall sentiment analysis scores aligned with the word cloud results, offering a somewhat accurate depiction of the sentiment in the videos. However, as shown in Exhibit E below, while the overall result was correct, the percentages were significantly off. Therefore, relying solely on sentiment analysis may not always yield a clear picture, given its inherent limitations in detecting sarcasm and inaccuracies in scoring comments.
+
+
+**Exhibit E: Sentiment Analysis Chart** 
+
+
+
+
+
+
+
+<img width="641" alt="image" src="https://github.com/mosalah2126/Finalproject.md/assets/144922510/e065ba5c-afde-4b0e-8f20-2c2441b76685">
+
 
 
