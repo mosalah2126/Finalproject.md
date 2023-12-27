@@ -267,7 +267,7 @@ In conclusion, despite some errors in classifying negative and neutral comments,
 
 
 
-<img width="641" alt="image" src="https://github.com/mosalah2126/Finalproject.md/assets/144922510/e065ba5c-afde-4b0e-8f20-2c2441b76685">
 
+<img width="641" alt="image" src="https://github.com/mosalah2126/Finalproject.md/assets/144922510/a23bff1f-f9cd-4daf-b0eb-f0c8aebabd33">
 
 
